@@ -179,6 +179,11 @@
       battery.addEventListener('chargingchange', () => updateBatteryStatus(battery));
       battery.addEventListener('levelchange', () => updateBatteryStatus(battery));
     });
+
+      function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    }
   </script>
 </body>
 </section>

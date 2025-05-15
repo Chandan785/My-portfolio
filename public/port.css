@@ -137,6 +137,10 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 4rem 10%;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
 .hero-image img {
@@ -145,6 +149,8 @@ padding: 4rem 10%;
     min-width: 400px;
     filter: drop-shadow(0 0 60px var(--global-clr));
     border-radius: 10%;
+      max-width: 100%;
+  height: auto;
 }
 
 .hero-content{
@@ -385,4 +391,71 @@ animation-delay: calc(0.5 * var(--i));
     opacity: 0;
     animation: fadeIn 2s ease-in-out forwards;
     animation-delay: 2s;
+}
+
+/* For tablets and below */
+@media only screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+      display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  header h2 {
+    font-size: 1.2em;
+  }
+
+  main {
+    padding: 15px;
+  }
+}
+
+/* For mobile phones */
+/* Tablet view (768px and below) */
+@media only screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    padding: 3%;
+  }
+}
+
+/* Mobile view (480px and below) */
+@media only screen and (max-width: 480px) {
+  nav a {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #battery {
+    width: 80%;
+    height: 25px;
+  }
+
+  .project {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
 }
