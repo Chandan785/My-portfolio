@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Animation</title>
-    <link rel="stylesheet" href="gif.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skill Animation</title>
+  <link rel="stylesheet" href="gif.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="container">
-        <div class="skill">
-            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExazc4bWk4OXpydDh5cWM3bG5oazJ4c2VmZW5ybWpvanMwdmhoeWtkdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2fPijn6hDsgmQQfWZd/giphy.gif" alt="GIF 1">
-            <img src="suprise.jpg" alt="Image 2">
-            <img src="photoskill.webp" alt="Image 3">
-            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDl2aHVodDBzemZ0Y29vdjBneHNieW5iNjZkendvaTJ1aDJwc290MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dhoXiGtZHb3kJol8JC/giphy.gif" alt="GIF 4">
-        </div>
-        <div id="delayedButton" class="text-center mt-5" style="display: none;">
-            <button class="btn btn-primary" onclick="window.location.href='skill.html' ">
-                Click here for check my skill
-            </button>
-        </div>
+  <div class="container">
+    <div class="skill">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExazc4bWk4OXpydDh5cWM3bG5oazJ4c2VmZW5ybWpvanMwdmhoeWtkdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2fPijn6hDsgmQQfWZd/giphy.gif" alt="GIF 1" />
+      <img src="photoskill.webp" alt="Image 2" />
+      <img id="lastImage" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDl2aHVodDBzemZ0Y29vdjBneHNieW5iNjZkendvaTJ1aDJwc290MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dhoXiGtZHb3kJol8JC/giphy.gif" alt="GIF 3" />
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+    <div id="delayedButton" class="text-center mt-5" style="display: none;">
+      <button class="btn btn-primary" onclick="window.location.href='skill.html' ">
+        Click here for check my skill
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
     const buttonDiv = document.getElementById('delayedButton');
 
+    // Every 5 seconds, show button in sync with last image
     setInterval(() => {
-        // Show the button
-        buttonDiv.style.display = 'block';
+      buttonDiv.style.display = 'block';
 
-        // Hide it again after 2.3 second
-        setTimeout(() => {
-            buttonDiv.style.display = 'none';
-        }, 2300); // 2300 milliseconds = 2.3 second
-
-    }, 9500); // Repeat every 9.5 seconds
-</script>
+      // Hide button after 1.66s (same as last image duration)
+      setTimeout(() => {
+        buttonDiv.style.display = 'none';
+      }, 1660);
+    }, 5000);
+  </script>
 </body>
 </html>

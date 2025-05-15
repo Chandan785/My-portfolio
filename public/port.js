@@ -6,3 +6,5 @@
         backSpeed: 150,
         loop: true
     });
+
+ 

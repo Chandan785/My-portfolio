@@ -10,17 +10,20 @@
 
 </head>
 <body>
+    
     <header>
 <nav class="navbar">
     <a href="#" class="logo" style="--i: 1">Port<span>folio</span></a>
 <ul>
      <li><a href="#" class="active" style="--i: 2">Home</a></li>
-     <li><a href="Resume.pdf" style="--i: 3">About</a></li>
+     <li><a href="https://docs.google.com/document/d/1MrAoYW4HlovqDdtz8kAJj8I3u3LV0m9cpZUB0Tvz2k0/edit?usp=sharing" style="--i: 3">About</a></li>
      <li><a href="gif.html" style="--i: 4">Skills</a></li>
      <li><a href="https://chandan785.netlify.app" style="--i: 5">Portfolio</a></li>
      <li><a href="contact.html" style="--i: 6">Contact</a></li>
+    
 </ul>
-<a href="download.html" class="cvbtn" style="--i: 7">Download Cv <i class="fa-solid fa-download"></i></a>
+<a href="https://docs.google.com/document/d/1MrAoYW4HlovqDdtz8kAJj8I3u3LV0m9cpZUB0Tvz2k0/edit?usp=sharing" class="cvbtn" style="--i: 7">Download Resume <i class="fa-solid fa-download"></i></a>
+
 </nav>
 
 </header>
@@ -64,7 +67,121 @@
     </div>
     </div>
 </sections>
+<section>
+    <style>
 
+.battery-box {
+  width: 100%;
+  height: 12px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.battery-box::after {
+  content: '';
+  width: 4px;
+  height: 6px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-radius: 1px;
+}
+
+.battery-level {
+  height: 100%;
+  width: 0%;
+  background-color: green;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.battery-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 3px;
+  color: black;
+}
+
+.charging-icon {
+  font-size: 12px;
+  color: black;
+}
+
+.battery-text {
+  color: gold;
+  font-size: 15px;
+    font-weight: 600px;
+}
+
+        </style>
+
+
+</head>
+<body>
+  <div class="battery-widget">
+    <div class="battery-box">
+      <div class="battery-level"></div>
+    </div>
+    <div class="battery-info">
+      <span class="charging-icon">🔄</span>
+      <span class="battery-text">Loading...</span>
+    </div>
+  </div>
+
+  <script defer>
+    let lowPrompt = false;
+    let almostFullPrompt = false;
+    let fullPrompt = false;
+
+    function updateBatteryStatus(battery) {
+      const level = Math.round(battery.level * 100);
+      const batteryLevel = document.querySelector('.battery-level');
+      const batteryText = document.querySelector('.battery-text');
+      const chargingIcon = document.querySelector('.charging-icon');
+
+      // Update width and color
+      batteryLevel.style.width = level + '%';
+      if (level <= 20) {
+        batteryLevel.style.backgroundColor = 'red';
+        if (!lowPrompt) {
+          alert('⚠️ Battery is low! Please charge.');
+          lowPrompt = true;
+        }
+      } else if (level > 80) {
+        batteryLevel.style.backgroundColor = 'green';
+        if (level >= 90 && level < 100 && !almostFullPrompt) {
+          alert('🔋 Battery is almost full!');
+          almostFullPrompt = true;
+        } else if (level === 100 && !fullPrompt) {
+          alert('✅ Battery fully charged!');
+          fullPrompt = true;
+        }
+      } else {
+        batteryLevel.style.backgroundColor = 'orange';
+      }
+
+      // Reset flags
+      if (level > 20) lowPrompt = false;
+      if (level < 90) almostFullPrompt = false;
+      if (level < 100) fullPrompt = false;
+
+      chargingIcon.textContent = battery.charging ? '⚡' : '🔋';
+      batteryText.textContent = ` battery status ${level}% | ${battery.charging ? 'Charging' : 'Not charging'}`;
+    }
+
+    navigator.getBattery().then(battery => {
+      updateBatteryStatus(battery);
+      battery.addEventListener('chargingchange', () => updateBatteryStatus(battery));
+      battery.addEventListener('levelchange', () => updateBatteryStatus(battery));
+    });
+  </script>
+</body>
+</section>
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <script src="port.js"></script>
