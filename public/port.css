@@ -149,8 +149,7 @@ padding: 4rem 10%;
     min-width: 400px;
     filter: drop-shadow(0 0 60px var(--global-clr));
     border-radius: 10%;
-      max-width: 100%;
-  height: auto;
+      
 }
 
 .hero-content{
